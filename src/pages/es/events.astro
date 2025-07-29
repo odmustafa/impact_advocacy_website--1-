@@ -1,0 +1,321 @@
+
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getLangFromUrl } from '../../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const title = "Eventos";
+const description = "Únete a los próximos talleres de educación financiera de Impact Advocacy, eventos de empoderamiento comunitario y programas educativos que sirven a familias latinas en el área de Dallas-Fort Worth.";
+
+// Sample upcoming events in Spanish
+const upcomingEvents = [
+  {
+    title: "Semana de Pequeños Negocios de Dallas - Taller 'Crédito que Funciona'",
+    date: "2025-02-15",
+    time: "10:00 AM - 12:00 PM",
+    location: "Centro Comunitario de Dallas, Oak Cliff",
+    description: "Aprende estrategias prácticas de reparación de crédito y opciones de financiamiento para pequeños negocios específicamente diseñadas para emprendedores latinos.",
+    type: "Taller",
+    registrationLink: "/es/contact"
+  },
+  {
+    title: "Feria de Inversión Latina de Fort Worth - Panel de Riqueza Generacional",
+    date: "2025-02-22",
+    time: "2:00 PM - 4:00 PM", 
+    location: "Centro de Convenciones de Fort Worth",
+    description: "Descubre estrategias de inversión y técnicas de construcción de riqueza que honran los valores culturales mientras aseguran el futuro de tu familia.",
+    type: "Panel de Discusión",
+    registrationLink: "/es/contact"
+  },
+  {
+    title: "Taller de Educación Financiera Comunitaria de Irving",
+    date: "2025-03-08",
+    time: "6:00 PM - 8:00 PM",
+    location: "Biblioteca Pública de Irving - Distrito Heritage",
+    description: "Taller bilingüe que cubre presupuestos, ahorros y manejo de deudas para familias latinas en Irving.",
+    type: "Taller",
+    registrationLink: "/es/contact"
+  }
+];
+
+// Sample past events in Spanish
+const pastEvents = [
+  {
+    title: "Mesa Redonda de Univision sobre Educación Financiera",
+    date: "2024-11-15",
+    location: "Estudios de Univision Dallas",
+    description: "Discusión destacada sobre empoderamiento financiero para comunidades latinas, llegando a más de 50,000 espectadores.",
+    type: "Aparición en Medios"
+  },
+  {
+    title: "Panel 'Mujeres en Finanzas' de Telemundo",
+    date: "2024-10-22",
+    location: "Estudios de Telemundo",
+    description: "Panel de mujeres en finanzas destacando la experiencia de Tessie Santiago en educación financiera comunitaria.",
+    type: "Aparición en TV"
+  },
+  {
+    title: "Cumbre de Negocios Latinos de la Cámara de Dallas",
+    date: "2024-09-18",
+    location: "Cámara de Comercio de Dallas",
+    description: "Presentación de consultoría estratégica sobre marketing para comunidades latinas desatendidas en DFW.",
+    type: "Cumbre"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} lang={currentLang}>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-dark-100 to-secondary-900"></div>
+      <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-600/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -1s;"></div>
+      </div>
+      
+      <div class="relative z-10 container-width px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 animate-fade-up">
+          Únete al <span class="gradient-text">Movimiento</span>
+        </h1>
+        <p class="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
+          Empoderando comunidades latinas a través de educación, defensa y acción
+        </p>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Próximos <span class="gradient-text">Eventos</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            No te pierdas estas oportunidades de crecer y conectar con tu comunidad
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          {upcomingEvents.map((event, index) => (
+            <div class="glass-card p-6 hover-lift animate-fade-up" style={`animation-delay: ${index * 0.1}s;`}>
+              <!-- Event Type Badge -->
+              <div class="inline-block px-3 py-1 bg-primary-600/20 text-primary-400 text-sm font-medium rounded-full mb-4">
+                {event.type}
+              </div>
+              
+              <!-- Event Title -->
+              <h3 class="text-xl font-bold text-white mb-3 line-clamp-2">
+                {event.title}
+              </h3>
+              
+              <!-- Date and Time -->
+              <div class="flex items-center text-white/70 mb-2">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="text-sm">
+                  {new Date(event.date).toLocaleDateString('es-ES', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </span>
+              </div>
+              
+              <!-- Time -->
+              <div class="flex items-center text-white/70 mb-3">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-sm">{event.time}</span>
+              </div>
+              
+              <!-- Location -->
+              <div class="flex items-center text-white/70 mb-4">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="text-sm">{event.location}</span>
+              </div>
+              
+              <!-- Description -->
+              <p class="text-white/80 text-sm mb-6 leading-relaxed">
+                {event.description}
+              </p>
+              
+              <!-- Register Button -->
+              <a 
+                href={event.registrationLink}
+                class="w-full inline-flex items-center justify-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105"
+              >
+                Registrarse Ahora
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Past Highlights Section -->
+    <section class="section-padding bg-dark-100">
+      <div class="container-width">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Eventos <span class="gradient-text">Destacados</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            Celebrando nuestro impacto y reconocimiento mediático
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {pastEvents.map((event, index) => (
+            <div class="glass-card p-6 hover-lift animate-fade-up" style={`animation-delay: ${index * 0.1}s;`}>
+              <!-- Event Type Badge -->
+              <div class="inline-block px-3 py-1 bg-secondary-600/20 text-secondary-400 text-sm font-medium rounded-full mb-4">
+                {event.type}
+              </div>
+              
+              <!-- Event Title -->
+              <h3 class="text-lg font-bold text-white mb-3">
+                {event.title}
+              </h3>
+              
+              <!-- Date -->
+              <div class="flex items-center text-white/70 mb-2">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <span class="text-sm">
+                  {new Date(event.date).toLocaleDateString('es-ES', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                  })}
+                </span>
+              </div>
+              
+              <!-- Location -->
+              <div class="flex items-center text-white/70 mb-4">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="text-sm">{event.location}</span>
+              </div>
+              
+              <!-- Description -->
+              <p class="text-white/80 text-sm leading-relaxed">
+                {event.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-8">
+            Participa <span class="gradient-text">Con Nosotros</span>
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Invite Us -->
+            <div class="glass-card p-8">
+              <div class="w-16 h-16 bg-primary-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4">Invita a Nuestro Equipo</h3>
+              <p class="text-white/70 mb-6">
+                Hospeda a Impact Advocacy en tu iglesia, centro comunitario u organización para un taller de educación financiera o evento de conferencias.
+              </p>
+              <a 
+                href="/es/contact"
+                class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-300"
+              >
+                Solicitar Evento de Conferencia
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Volunteer -->
+            <div class="glass-card p-8">
+              <div class="w-16 h-16 bg-secondary-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                </svg>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-4">Sé Voluntario Con Nosotros</h3>
+              <p class="text-white/70 mb-6">
+                Únete a nuestra misión de empoderar a familias latinas siendo voluntario en talleres, eventos y programas de alcance comunitario.
+              </p>
+              <a 
+                href="/es/contact"
+                class="inline-flex items-center px-6 py-3 bg-secondary-600 hover:bg-secondary-700 text-white font-medium rounded-lg transition-all duration-300"
+              >
+                Conviértete en Voluntario  
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section-padding bg-gradient-to-r from-primary-900 to-secondary-900">
+      <div class="container-width">
+        <div class="max-w-2xl mx-auto text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Mantente <span class="gradient-text">Conectado</span>
+          </h2>
+          <p class="text-xl text-white/80 mb-8">
+            Recibe notificaciones sobre próximos eventos, talleres y recursos de educación financiera directamente en tu correo.
+          </p>
+          
+          <!-- Newsletter Form -->
+          <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Ingresa tu correo"
+              class="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent"
+              required
+            />
+            <button
+              type="submit"
+              class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105"
+            >
+              Suscribirse
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '../../styles/global.css';
+</script>

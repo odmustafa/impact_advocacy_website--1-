@@ -1,0 +1,234 @@
+
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import TeamSection from '../../components/TeamSection.astro';
+import { getLangFromUrl } from '../../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const title = "Acerca de Nosotros";
+const description = "Conoce la misión, visión y equipo experimentado de Impact Advocacy dedicado a empoderar a las comunidades latinas en el área de Dallas-Fort Worth a través de educación financiera y defensa estratégica.";
+---
+
+<BaseLayout title={title} description={description} lang={currentLang}>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-dark-100 to-secondary-900"></div>
+      <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-600/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -1s;"></div>
+      </div>
+      
+      <div class="relative z-10 container-width px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 animate-fade-up">
+          Acerca de <span class="gradient-text">Impact Advocacy</span>
+        </h1>
+        <p class="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
+          Construyendo puentes entre sueños y realidad para familias latinas en DFW
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="glass-card p-8 lg:p-12">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+              Nuestra <span class="gradient-text">Misión</span>
+            </h2>
+            <p class="text-lg text-white/80 mb-6 leading-relaxed">
+              Creamos espacios donde la dignidad se encuentra con los datos, donde el orgullo cultural se cruza con la sabiduría financiera, y donde el sueño de cada familia tiene un camino estratégico hacia adelante.
+            </p>
+            <p class="text-lg text-white/80 leading-relaxed">
+              Impact Advocacy existe para cerrar la brecha entre las comunidades latinas y el empoderamiento financiero a través de educación culturalmente sensible, defensa estratégica y compromiso comunitario auténtico.
+            </p>
+          </div>
+          
+          <div class="glass-card p-8 lg:p-12">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+              Nuestra <span class="gradient-text">Visión</span>
+            </h2>
+            <p class="text-lg text-white/80 mb-6 leading-relaxed">
+              Un Dallas-Fort Worth donde cada familia latina tenga la educación financiera, recursos y apoyo de defensa necesarios para construir riqueza generacional y lograr su sueño americano.
+            </p>
+            <blockquote class="text-xl italic text-primary-400 font-medium">
+              "Si educas a una familia, empoderas a una generación."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section-padding bg-dark-100">
+      <div class="container-width">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+              Nuestra <span class="gradient-text">Historia</span>
+            </h2>
+            <p class="text-xl text-white/70">
+              De defensores comunitarios a líderes de empoderamiento financiero
+            </p>
+          </div>
+          
+          <div class="space-y-12">
+            <!-- Timeline Item 1 -->
+            <div class="flex items-start space-x-6">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold">1</span>
+              </div>
+              <div class="glass-card p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-3">El Comienzo: Reconocimiento Comunitario</h3>
+                <p class="text-white/80">
+                  Nuestros fundadores reconocieron una brecha crítica en los recursos de educación financiera específicamente diseñados para familias latinas en el área de DFW. La educación financiera tradicional a menudo no abordaba los matices culturales y las barreras del idioma.
+                </p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 2 -->
+            <div class="flex items-start space-x-6">
+              <div class="flex-shrink-0 w-12 h-12 bg-secondary-600 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold">2</span>
+              </div>
+              <div class="glass-card p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-3">Construyendo Experiencia: Medios y Liderazgo</h3>
+                <p class="text-white/80">
+                  A través de años de liderazgo comunitario, apariciones en medios en Univision y Telemundo, y asociaciones con organizaciones como la Cámara de Comercio de Dallas, nuestro equipo construyó credibilidad y confianza dentro de la comunidad.
+                </p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 3 -->
+            <div class="flex items-start space-x-6">
+              <div class="flex-shrink-0 w-12 h-12 bg-accent-600 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold">3</span>
+              </div>
+              <div class="glass-card p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-3">Formación de Impact Advocacy</h3>
+                <p class="text-white/80">
+                  En respuesta a las crecientes necesidades comunitarias, Impact Advocacy fue formalmente establecido para proporcionar servicios integrales de educación financiera, consultoría estratégica y empoderamiento comunitario diseñados específicamente para familias latinas.
+                </p>
+              </div>
+            </div>
+
+            <!-- Timeline Item 4 -->
+            <div class="flex items-start space-x-6">
+              <div class="flex-shrink-0 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+                <span class="text-white font-bold">4</span>
+              </div>
+              <div class="glass-card p-6 flex-1">
+                <h3 class="text-xl font-bold text-white mb-3">Resultados Comprobados: 500+ Familias Empoderadas</h3>
+                <p class="text-white/80">
+                  Hoy, Impact Advocacy ha servido exitosamente a más de 500 familias en Dallas, Fort Worth, Irving, Oak Cliff y Pleasant Grove, realizando más de 150 talleres y construyendo asociaciones duraderas en toda el área de DFW.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <TeamSection />
+
+    <!-- Values Section -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Nuestros <span class="gradient-text">Valores</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            Los principios que guían todo lo que hacemos
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Confianza (Trust) -->
+          <div class="glass-card p-8 text-center hover-lift">
+            <div class="w-16 h-16 bg-primary-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              <span class="gradient-text">Confianza</span>
+              <div class="text-lg text-white/70 font-normal">(Trust)</div>
+            </h3>
+            <p class="text-white/80">
+              Construyendo relaciones auténticas basadas en respeto mutuo y comprensión cultural dentro de nuestra comunidad.
+            </p>
+          </div>
+
+          <!-- Respeto (Respect) -->
+          <div class="glass-card p-8 text-center hover-lift">
+            <div class="w-16 h-16 bg-secondary-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              <span class="gradient-text">Respeto</span>
+              <div class="text-lg text-white/70 font-normal">(Respect)</div>
+            </h3>
+            <p class="text-white/80">
+              Honrando el viaje único de cada familia, trasfondo cultural y metas financieras individuales sin juicio.
+            </p>
+          </div>
+
+          <!-- Acción (Action) -->
+          <div class="glass-card p-8 text-center hover-lift">
+            <div class="w-16 h-16 bg-accent-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">
+              <span class="gradient-text">Acción</span>
+              <div class="text-lg text-white/70 font-normal">(Action)</div>
+            </h3>
+            <p class="text-white/80">
+              Transformando conocimiento en resultados tangibles a través de estrategias prácticas y compromiso comunitario continuo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-primary-900 to-secondary-900">
+      <div class="container-width">
+        <div class="text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            ¿Listo para <span class="gradient-text">Trabajar Juntos?</span>
+          </h2>
+          <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Conecta con nuestro equipo experimentado y comienza tu viaje hacia el empoderamiento financiero hoy.
+          </p>
+          <a 
+            href="/es/contact"
+            class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-2xl transition-all duration-300 hover:scale-105 neon-glow"
+          >
+            Ponte en Contacto
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '../../styles/global.css';
+</script>

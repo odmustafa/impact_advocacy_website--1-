@@ -1,0 +1,67 @@
+
+---
+import { getLangFromUrl } from '../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+// Generate URLs for both languages
+let englishUrl, spanishUrl;
+
+if (currentLang === 'es') {
+  // Currently on Spanish page
+  englishUrl = currentPath.replace(/^\/es/, '') || '/';
+  spanishUrl = currentPath;
+} else {
+  // Currently on English page  
+  englishUrl = currentPath;
+  spanishUrl = '/es' + currentPath;
+}
+---
+
+<div class="language-toggle">
+  <div class="flex items-center glass-card rounded-full p-1 toggle-container">
+    <a
+      href={englishUrl}
+      class={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-300 toggle-button ${
+        currentLang === 'en' 
+          ? 'bg-primary-600 text-white shadow-lg active' 
+          : 'text-white/70 hover:text-white'
+      }`}
+      data-lang="en"
+    >
+      EN
+    </a>
+    <a
+      href={spanishUrl}
+      class={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-300 toggle-button ${
+        currentLang === 'es' 
+          ? 'bg-primary-600 text-white shadow-lg active' 
+          : 'text-white/70 hover:text-white'
+      }`}
+      data-lang="es"
+    >
+      ES
+    </a>
+  </div>
+</div>
+
+<style>
+  .toggle-container {
+    position: relative;
+  }
+  
+  .toggle-button {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .toggle-button.active {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  }
+  
+  .toggle-button:not(.active):hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+</style>

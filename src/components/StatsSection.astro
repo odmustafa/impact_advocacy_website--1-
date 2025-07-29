@@ -1,0 +1,95 @@
+
+---
+import { getLangFromUrl, useTranslations } from '../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
+const stats = [
+  {
+    number: '150+',
+    label: t('stats.workshops'),
+    icon: 'book'
+  },
+  {
+    number: '500+',
+    label: t('stats.families'),
+    icon: 'family'
+  },
+  {
+    number: '15+',
+    label: t('stats.years'),
+    icon: 'star'
+  },
+  {
+    number: '3',
+    label: t('stats.cities'),
+    icon: 'city'
+  }
+];
+---
+
+<section class="section-padding bg-dark-100">
+  <div class="container-width">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+      {stats.map((stat, index) => (
+        <div 
+          class="text-center glass-card p-6 hover-lift animate-fade-up"
+          style={`animation-delay: ${index * 0.1}s;`}
+        >
+          <div class="flex justify-center mb-4">
+            <img 
+              src={`/icons/${stat.icon}.svg`}
+              alt={stat.label}
+              class="w-12 h-12"
+              style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+            />
+          </div>
+          <div class="text-4xl lg:text-5xl font-bold gradient-text mb-2 counter" data-target={stat.number.replace('+', '')}>
+            0
+          </div>
+          <p class="text-white/70 font-medium">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Counter animation
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target as HTMLElement;
+          const target = parseInt(counter.dataset.target || '0');
+          const increment = target / 50;
+          let current = 0;
+          
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              counter.textContent = target + (counter.parentElement?.textContent?.includes('+') ? '+' : '');
+              clearInterval(timer);
+            } else {
+              counter.textContent = Math.floor(current).toString();
+            }
+          }, 40);
+          
+          observer.unobserve(counter);
+        }
+      });
+    });
+    
+    counters.forEach(counter => observer.observe(counter));
+  }
+  
+  // Initialize when DOM is loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateCounters);
+  } else {
+    animateCounters();
+  }
+</script>

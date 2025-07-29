@@ -1,0 +1,207 @@
+
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import StatsSection from '../../components/StatsSection.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
+import TeamSection from '../../components/TeamSection.astro';
+import { getLangFromUrl } from '../../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+// Hero content in Spanish
+const heroTitle = "Empoderando Comunidades Latinas a Través de Educación Financiera";
+const heroSubtitle = "Educación y Defensa Estratégica en el Área de Dallas-Fort Worth";
+const heroCTA = "Comenzar";
+const heroCTALink = "/es/contact";
+
+// Page metadata
+const title = "Inicio";
+const description = "Impact Advocacy empodera a las comunidades latinas en DFW a través de educación financiera, educación y defensa estratégica. Dirigido por profesionales experimentados que sirven Dallas, Fort Worth, Irving y áreas circundantes.";
+---
+
+<BaseLayout title={title} description={description} lang={currentLang}>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title={heroTitle}
+      subtitle={heroSubtitle}
+      ctaText={heroCTA}
+      ctaLink={heroCTALink}
+    />
+
+    <!-- Stats Section -->
+    <StatsSection />
+
+    <!-- Why Impact Advocacy Section -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-8">
+            ¿Por qué <span class="gradient-text">Impact Advocacy?</span>
+          </h2>
+          <div class="glass-card p-8 lg:p-12">
+            <p class="text-xl lg:text-2xl text-white/90 leading-relaxed mb-8">
+              "Creamos espacios donde la dignidad se encuentra con los datos, donde el orgullo cultural se cruza con la sabiduría financiera, y donde el sueño de cada familia tiene un camino estratégico hacia adelante."
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              <div class="text-center">
+                <div class="flex justify-center mb-4">
+                  <img 
+                    src="/icons/target.svg"
+                    alt="Enfoque Dirigido"
+                    class="w-12 h-12"
+                    style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+                  />
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Enfoque Dirigido</h3>
+                <p class="text-white/70">Soluciones personalizadas para comunidades latinas en DFW</p>
+              </div>
+              <div class="text-center">
+                <div class="flex justify-center mb-4">
+                  <img 
+                    src="/icons/speech.svg"
+                    alt="Experiencia Bilingüe"
+                    class="w-12 h-12"
+                    style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+                  />
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Experiencia Bilingüe</h3>
+                <p class="text-white/70">Hablantes nativos de español que entienden tu cultura</p>
+              </div>
+              <div class="text-center">
+                <div class="flex justify-center mb-4">
+                  <img 
+                    src="/icons/television.svg"
+                    alt="Reconocimiento Mediático"
+                    class="w-12 h-12"
+                    style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+                  />
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Reconocimiento Mediático</h3>
+                <p class="text-white/70">Destacado en Univision, Telemundo y medios locales</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Preview -->
+    <ServicesGrid />
+
+    <!-- Testimonial Section -->
+    <section class="section-padding bg-dark-100">
+      <div class="container-width">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="glass-card p-8 lg:p-12">
+            <div class="text-6xl mb-6">"</div>
+            <blockquote class="text-2xl lg:text-3xl font-light text-white mb-8 italic">
+              Si educas a una familia, empoderas a una generación.
+            </blockquote>
+            <div class="text-primary-400 font-semibold">
+              — Misión de Impact Advocacy
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Preview -->
+    <TeamSection />
+
+    <!-- Media Partners & Credibility -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+            Con la confianza de <span class="gradient-text">Socios Comunitarios</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            Construyendo credibilidad a través de asociaciones y reconocimiento mediático
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-70">
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/television.svg"
+                alt="Univision"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">Univision</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/radio.svg"
+                alt="Telemundo"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">Telemundo</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/office.svg"
+                alt="Cámara de Dallas"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">Cámara de Dallas</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/handshake.svg"
+                alt="GO TEXAN"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">GO TEXAN</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-primary-900 to-secondary-900">
+      <div class="container-width">
+        <div class="text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            ¿Listo para <span class="gradient-text">Comenzar?</span>
+          </h2>
+          <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Únete a cientos de familias que han transformado su futuro financiero con la orientación de Impact Advocacy.
+          </p>
+          <a 
+            href="/es/contact"
+            class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-2xl transition-all duration-300 hover:scale-105 neon-glow"
+          >
+            Comienza Tu Viaje
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '../../styles/global.css';
+</script>

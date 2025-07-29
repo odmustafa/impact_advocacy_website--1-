@@ -1,0 +1,207 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import StatsSection from '../components/StatsSection.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import TeamSection from '../components/TeamSection.astro';
+import { getLangFromUrl } from '../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+// Hero content
+const heroTitle = "Empowering Latino Communities Through Financial Literacy";
+const heroSubtitle = "Education and Strategic Advocacy in the Dallas-Fort Worth Area";
+const heroCTA = "Get Started";
+const heroCTALink = "/contact";
+
+// Page metadata
+const title = "Home";
+const description = "Impact Advocacy empowers Latino communities in DFW through financial literacy, education, and strategic advocacy. Led by experienced professionals serving Dallas, Fort Worth, Irving, and surrounding areas.";
+---
+
+<BaseLayout title={title} description={description} lang={currentLang}>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <Hero 
+      title={heroTitle}
+      subtitle={heroSubtitle}
+      ctaText={heroCTA}
+      ctaLink={heroCTALink}
+    />
+
+    <!-- Stats Section -->
+    <StatsSection />
+
+    <!-- Why Impact Advocacy Section -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-8">
+            Why <span class="gradient-text">Impact Advocacy?</span>
+          </h2>
+          <div class="glass-card p-8 lg:p-12">
+            <p class="text-xl lg:text-2xl text-white/90 leading-relaxed mb-8">
+              "We create spaces where dignity meets data, where cultural pride intersects with financial wisdom, and where every family's dream has a strategic path forward."
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+              <div class="text-center">
+                <div class="flex justify-center mb-4">
+                  <img 
+                    src="/icons/target.svg"
+                    alt="Targeted Approach"
+                    class="w-12 h-12"
+                    style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+                  />
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Targeted Approach</h3>
+                <p class="text-white/70">Customized solutions for Latino communities in DFW</p>
+              </div>
+              <div class="text-center">
+                <div class="flex justify-center mb-4">
+                  <img 
+                    src="/icons/speech.svg"
+                    alt="Bilingual Expertise"
+                    class="w-12 h-12"
+                    style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+                  />
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Bilingual Expertise</h3>
+                <p class="text-white/70">Native Spanish speakers who understand your culture</p>
+              </div>
+              <div class="text-center">
+                <div class="flex justify-center mb-4">
+                  <img 
+                    src="/icons/television.svg"
+                    alt="Media Recognition"
+                    class="w-12 h-12"
+                    style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+                  />
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2">Media Recognition</h3>
+                <p class="text-white/70">Featured on Univision, Telemundo, and local media</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Preview -->
+    <ServicesGrid />
+
+    <!-- Testimonial Section -->
+    <section class="section-padding bg-dark-100">
+      <div class="container-width">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="glass-card p-8 lg:p-12">
+            <div class="text-6xl mb-6">"</div>
+            <blockquote class="text-2xl lg:text-3xl font-light text-white mb-8 italic">
+              If you educate one family, you empower a generation.
+            </blockquote>
+            <div class="text-primary-400 font-semibold">
+              — Impact Advocacy Mission
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Preview -->
+    <TeamSection />
+
+    <!-- Media Partners & Credibility -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+            Trusted by <span class="gradient-text">Community Partners</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            Building credibility through partnerships and media recognition
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-70">
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/television.svg"
+                alt="Univision"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">Univision</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/radio.svg"
+                alt="Telemundo"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">Telemundo</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/office.svg"
+                alt="Dallas Chamber"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">Dallas Chamber</p>
+          </div>
+          <div class="glass-card p-6 text-center hover:opacity-100 transition-opacity duration-300">
+            <div class="flex justify-center mb-2">
+              <img 
+                src="/icons/handshake.svg"
+                alt="GO TEXAN"
+                class="w-10 h-10"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <p class="text-white font-medium">GO TEXAN</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-primary-900 to-secondary-900">
+      <div class="container-width">
+        <div class="text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Ready to <span class="gradient-text">Get Started?</span>
+          </h2>
+          <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Join hundreds of families who have transformed their financial future with Impact Advocacy's guidance.
+          </p>
+          <a 
+            href="/contact"
+            class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-2xl transition-all duration-300 hover:scale-105 neon-glow"
+          >
+            Start Your Journey
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '../styles/global.css';
+</script>

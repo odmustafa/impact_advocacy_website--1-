@@ -1,0 +1,191 @@
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Satoshi:wght@300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-200 text-white font-sans;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(30, 64, 175, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  }
+  
+  .glass-button {
+    @apply glass-card px-6 py-3 text-sm font-medium transition-all duration-300;
+    @apply hover:bg-white/10 hover:border-white/20 hover:shadow-lg hover:shadow-primary-600/25;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent;
+    position: relative;
+  }
+  
+  .gradient-text-glow {
+    @apply bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent;
+    position: relative;
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+  }
+  
+  .gradient-text-glow::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #3b82f6, #14b8a6);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(3px);
+    opacity: 0.7;
+    z-index: -1;
+  }
+  
+  .title-hover-glow {
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .title-hover-glow:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 5px 15px rgba(59, 130, 246, 0.4));
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  }
+  
+  .neon-glow {
+    @apply shadow-lg;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
+  }
+  
+  .enhanced-neon-glow {
+    box-shadow: 
+      0 0 5px rgba(59, 130, 246, 0.5),
+      0 0 25px rgba(59, 130, 246, 0.3),
+      0 0 50px rgba(59, 130, 246, 0.1),
+      0 0 100px rgba(59, 130, 246, 0.05);
+    animation: neonPulse 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes neonPulse {
+    from {
+      box-shadow: 
+        0 0 5px rgba(59, 130, 246, 0.5),
+        0 0 25px rgba(59, 130, 246, 0.3),
+        0 0 50px rgba(59, 130, 246, 0.1);
+    }
+    to {
+      box-shadow: 
+        0 0 10px rgba(59, 130, 246, 0.8),
+        0 0 35px rgba(59, 130, 246, 0.5),
+        0 0 70px rgba(59, 130, 246, 0.3);
+    }
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl;
+  }
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+  
+  .container-width {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .team-card-enhanced {
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .team-card-enhanced:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(59, 130, 246, 0.2);
+  }
+  
+  .team-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(20, 184, 166, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .team-card-enhanced:hover::before {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  
+  .pulse-animation {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: .8;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}

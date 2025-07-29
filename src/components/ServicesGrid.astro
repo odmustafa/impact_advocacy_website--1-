@@ -1,0 +1,126 @@
+
+---
+import { getLangFromUrl } from '../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const services = [
+  {
+    title: currentLang === 'es' ? 'Educación Financiera' : 'Financial Literacy Training',
+    description: currentLang === 'es' 
+      ? 'Talleres sobre presupuestos juveniles, reparación de crédito, planificación financiera para adultos y contabilidad para pequeñas empresas.'
+      : 'Workshops on youth budgeting, credit repair, adult financial planning, and small business bookkeeping.',
+    icon: 'money',
+    features: currentLang === 'es' 
+      ? ['Talleres de presupuesto juvenil', 'Reparación de crédito', 'Planificación financiera', 'Contabilidad empresarial']
+      : ['Youth budgeting workshops', 'Credit repair', 'Financial planning', 'Business bookkeeping'],
+    color: 'primary'
+  },
+  {
+    title: currentLang === 'es' ? 'Empoderamiento Comunitario' : 'Community Empowerment Programs',
+    description: currentLang === 'es'
+      ? 'Alcance en festivales, iglesias, escuelas como ferias culturales latinas, paneles de mujeres en finanzas, talleres de registro de votantes.'
+      : 'Outreach at festivals, churches, schools like Latino cultural fairs, women-in-finance panels, voter registration workshops.',
+    icon: 'handshake',
+    features: currentLang === 'es'
+      ? ['Ferias culturales', 'Paneles educativos', 'Registro de votantes', 'Eventos comunitarios']
+      : ['Cultural fairs', 'Educational panels', 'Voter registration', 'Community events'],
+    color: 'secondary'
+  },
+  {
+    title: currentLang === 'es' ? 'Consultoría Estratégica' : 'Strategic Consulting',
+    description: currentLang === 'es'
+      ? 'Orientación personalizada para organizaciones sin fines de lucro y emprendedores, marketing para comunidades desatendidas, planificación de riqueza generacional.'
+      : 'Customized guidance for nonprofits and entrepreneurs, marketing to underserved communities, generational wealth planning.',
+    icon: 'target',
+    features: currentLang === 'es'
+      ? ['Consultoría sin fines de lucro', 'Marketing comunitario', 'Planificación de riqueza', 'Asesoramiento bilingüe']
+      : ['Nonprofit consulting', 'Community marketing', 'Wealth planning', 'Bilingual advising'],
+    color: 'accent'
+  },
+  {
+    title: currentLang === 'es' ? 'Orientación Inmobiliaria' : 'Real Estate & Housing Guidance',
+    description: currentLang === 'es'
+      ? 'Asesoramiento para inquilinos y compradores primerizos en áreas de DFW con conocimientos del mercado local para vecindarios como Oak Cliff, Pleasant Grove, Irving.'
+      : 'Advice for renters and first-time buyers in DFW areas with local market insights for neighborhoods like Oak Cliff, Pleasant Grove, Irving.',
+    icon: 'house',
+    features: currentLang === 'es'
+      ? ['Compradores primerizos', 'Conocimiento del mercado DFW', 'Asesoramiento de inquilinos', 'Perspectivas locales']
+      : ['First-time buyers', 'DFW market knowledge', 'Renter guidance', 'Local insights'],
+    color: 'primary'
+  }
+];
+---
+
+<section class="section-padding">
+  <div class="container-width">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+        {currentLang === 'es' ? 'Nuestros' : 'Our'} 
+        <span class="gradient-text">
+          {currentLang === 'es' ? 'Servicios' : 'Services'}
+        </span>
+      </h2>
+      <p class="text-xl text-white/70 max-w-3xl mx-auto">
+        {currentLang === 'es' 
+          ? 'Soluciones prácticas. Resultados comprobados. Impacto comunitario.'
+          : 'Practical Solutions. Proven Results. Community Impact.'
+        }
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {services.map((service, index) => (
+        <div 
+          class="glass-card p-8 hover-lift animate-fade-up group"
+          style={`animation-delay: ${index * 0.1}s;`}
+        >
+          <!-- Icon and Title -->
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 mr-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+              <img 
+                src={`/icons/${service.icon}.svg`}
+                alt={service.title}
+                class="w-10 h-10 text-primary-400"
+                style="filter: invert(64%) sepia(88%) saturate(3151%) hue-rotate(200deg) brightness(103%) contrast(103%);"
+              />
+            </div>
+            <h3 class="text-2xl font-bold text-white">
+              {service.title}
+            </h3>
+          </div>
+
+          <!-- Description -->
+          <p class="text-white/70 mb-6 leading-relaxed">
+            {service.description}
+          </p>
+
+          <!-- Features -->
+          <ul class="space-y-2 mb-6">
+            {service.features.map((feature) => (
+              <li class="flex items-center text-white/80">
+                <svg class="w-4 h-4 mr-3 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <!-- Learn More Button -->
+          <a 
+            href={currentLang === 'es' ? '/es/contact' : '/contact'}
+            class="inline-flex items-center text-primary-400 hover:text-primary-300 font-medium transition-colors duration-300 group"
+          >
+            {currentLang === 'es' ? 'Más información' : 'Learn More'}
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

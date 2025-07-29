@@ -1,0 +1,243 @@
+
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
+import { getLangFromUrl } from '../../utils/i18n';
+
+const currentLang = getLangFromUrl(Astro.url);
+
+const title = "Servicios";
+const description = "Servicios integrales de educación financiera, empoderamiento comunitario, consultoría estratégica y orientación inmobiliaria para familias latinas en el área de Dallas-Fort Worth.";
+---
+
+<BaseLayout title={title} description={description} lang={currentLang}>
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary-900 via-dark-100 to-secondary-900"></div>
+      <div class="absolute inset-0">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-primary-600/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-float" style="animation-delay: -1s;"></div>
+      </div>
+      
+      <div class="relative z-10 container-width px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 animate-fade-up">
+          Nuestros <span class="gradient-text">Servicios</span>
+        </h1>
+        <p class="text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto animate-fade-up" style="animation-delay: 0.2s;">
+          Soluciones Prácticas. Resultados Comprobados. Impacto Comunitario.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <ServicesGrid />
+
+    <!-- Service Process -->
+    <section class="section-padding bg-dark-100">
+      <div class="container-width">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Nuestro <span class="gradient-text">Proceso</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            Cómo empoderamos a las familias paso a paso
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Step 1 -->
+          <div class="glass-card p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-primary-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-primary-400">1</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Evaluación</h3>
+            <p class="text-white/70">
+              Evaluamos tu situación financiera actual y contexto cultural para entender tus necesidades únicas.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="glass-card p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-secondary-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-secondary-400">2</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Estrategia</h3>
+            <p class="text-white/70">
+              Creamos un plan de acción personalizado que respeta tus valores culturales mientras logra metas financieras.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="glass-card p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-accent-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-accent-400">3</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Educación</h3>
+            <p class="text-white/70">
+              A través de talleres y sesiones individuales, proporcionamos el conocimiento y herramientas necesarias para el éxito.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="glass-card p-6 text-center hover-lift">
+            <div class="w-16 h-16 bg-primary-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <span class="text-2xl font-bold text-primary-400">4</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-4">Apoyo</h3>
+            <p class="text-white/70">
+              Proporcionamos orientación continua y defensa para asegurar tu éxito financiero a largo plazo y crecimiento comunitario.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Areas We Serve -->
+    <section class="section-padding">
+      <div class="container-width">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Áreas que <span class="gradient-text">Servimos</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            Llevando empoderamiento financiero a las comunidades latinas en todo DFW
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Dallas -->
+          <div class="glass-card p-6 hover-lift">
+            <h3 class="text-2xl font-bold text-white mb-4">Dallas</h3>
+            <p class="text-white/70 mb-4">
+              Talleres integrales de educación financiera y programas de empoderamiento comunitario en vecindarios de Dallas.
+            </p>
+            <ul class="text-white/60 text-sm space-y-1">
+              <li>• Oak Cliff</li>
+              <li>• Pleasant Grove</li>
+              <li>• West Dallas</li>
+              <li>• East Dallas</li>
+            </ul>
+          </div>
+
+          <!-- Fort Worth -->
+          <div class="glass-card p-6 hover-lift">
+            <h3 class="text-2xl font-bold text-white mb-4">Fort Worth</h3>
+            <p class="text-white/70 mb-4">
+              Consultoría estratégica y orientación inmobiliaria para familias y empresas latinas en Fort Worth.
+            </p>
+            <ul class="text-white/60 text-sm space-y-1">
+              <li>• Northside</li>
+              <li>• East Fort Worth</li>
+              <li>• Como</li>
+              <li>• Polytechnic Heights</li>
+            </ul>
+          </div>
+
+          <!-- Irving -->
+          <div class="glass-card p-6 hover-lift">
+            <h3 class="text-2xl font-bold text-white mb-4">Irving</h3>
+            <p class="text-white/70 mb-4">
+              Eventos de empoderamiento comunitario y orientación de vivienda para la diversa población latina de Irving.
+            </p>
+            <ul class="text-white/60 text-sm space-y-1">
+              <li>• Heritage District</li>
+              <li>• Las Colinas</li>
+              <li>• Valley Ranch</li>
+              <li>• Centennial Park</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="section-padding bg-dark-100">
+      <div class="container-width">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Historias de <span class="gradient-text">Éxito</span>
+          </h2>
+          <p class="text-xl text-white/70">
+            Resultados reales de familias reales
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Success Story 1 -->
+          <div class="glass-card p-8">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-primary-600/20 rounded-full flex items-center justify-center mr-4">
+                <span class="text-primary-400 font-bold">M.R.</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">Familia Rodriguez</h3>
+                <p class="text-white/70 text-sm">Oak Cliff, Dallas</p>
+              </div>
+            </div>
+            <p class="text-white/80 mb-4">
+              "Después de asistir a los talleres de educación financiera de Impact Advocacy, pudimos mejorar nuestro puntaje crediticio en 150 puntos y calificar para nuestro primer préstamo hipotecario."
+            </p>
+            <div class="flex space-x-4 text-sm">
+              <span class="text-primary-400">Reparación de Crédito</span>
+              <span class="text-secondary-400">Primera Vivienda</span>
+            </div>
+          </div>
+
+          <!-- Success Story 2 -->
+          <div class="glass-card p-8">
+            <div class="flex items-center mb-6">
+              <div class="w-12 h-12 bg-secondary-600/20 rounded-full flex items-center justify-center mr-4">
+                <span class="text-secondary-400 font-bold">C.L.</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-white">Negocio de Carlos Lopez</h3>
+                <p class="text-white/70 text-sm">Irving, TX</p>
+              </div>
+            </div>
+            <p class="text-white/80 mb-4">
+              "La consultoría estratégica nos ayudó a expandir nuestro negocio de restaurante y ahora empleamos a 12 personas de nuestra comunidad."
+            </p>
+            <div class="flex space-x-4 text-sm">
+              <span class="text-accent-400">Crecimiento Empresarial</span>
+              <span class="text-primary-400">Impacto Comunitario</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-primary-900 to-secondary-900">
+      <div class="container-width">
+        <div class="text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+            ¿Listo para <span class="gradient-text">Comenzar?</span>
+          </h2>
+          <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Elige el servicio que mejor se adapte a tus necesidades y da el primer paso hacia el empoderamiento financiero.
+          </p>
+          <a 
+            href="/es/contact"
+            class="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-primary-600 hover:bg-primary-700 rounded-2xl transition-all duration-300 hover:scale-105 neon-glow"
+          >
+            Programar Consulta
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '../../styles/global.css';
+</script>
